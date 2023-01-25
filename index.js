@@ -123,7 +123,7 @@ app.post('/kittens', setUser,async (req, res, next) => {
     res.sendStatus(401);
   }else{
     try {
-      const newKitten = await Kitten.create({name:req.body.name, age:req.body.age, color:req.body.color, userId: req.user.id});
+      const newKitten = await Kitten.create({name:req.body.name, age:req.body.age, color:req.body.color, ownerId: req.user.id});
       res.status(201).send({age:newKitten.age, color:newKitten.color, name:newKitten.name});
     } catch (error) {
       res.send(error);
